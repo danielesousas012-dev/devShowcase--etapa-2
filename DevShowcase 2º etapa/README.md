@@ -46,15 +46,3 @@ Crie perfil e tecnologia como na etapa 1, anote os IDs retornados, e crie um pro
 
 Cadastre outra avaliação com nota 3 e veja `average_rating: 4.0` em GET `/api/projects`. Para o erro 404, busque `/api/profiles/99999`. Para o erro 400, tente nota 6 na rota de avaliações. O formato é `{"error":{"code":400,"message":"Dados inválidos","details":[...]}}`.
 
-## Publicar no Render com PostgreSQL do Supabase
-
-1. Envie estes arquivos ao repositório GitHub público (não envie `.venv`, `.testvenv`, `.db` ou senhas).
-2. Crie um projeto no Supabase. Em **Connect**, copie a conexão PostgreSQL **Session pooler** se a conexão direta não funcionar em IPv4. Troque `[YOUR-PASSWORD]` pela senha do banco, codificando caracteres especiais na URL.
-3. No Render, crie um **Web Service** apontando para o repositório. Configure **Build Command** como `pip install -r requirements.txt` e **Start Command** como `uvicorn main:app --host 0.0.0.0 --port $PORT`.
-4. Adicione a conexão completa como variável de ambiente **DATABASE_URL** no Render, nunca no código. Abra `https://SEU-SERVICO.onrender.com/docs` e teste uma rota.
-
-Se o repositório contiver o projeto em uma subpasta, configure **Root Directory** no Render para essa subpasta. O deploy só estará completo quando a URL pública abrir e acessar o PostgreSQL. Um banco novo começa sem os dados do SQLite local; cadastre dados de demonstração na API publicada.
-
-## Entrega
-
-PDF com três links: repositório público, API publicada (`/docs`) e vídeo não listado no YouTube. O vídeo deve durar de 5 a 8 minutos, mostrar a estudante em câmera no começo, gravar a tela inteira e testar os endpoints novos, inclusive respostas 400 e 404.
